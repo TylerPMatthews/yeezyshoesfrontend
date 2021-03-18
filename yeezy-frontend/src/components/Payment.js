@@ -2,10 +2,19 @@ import React from "react";
 import { connect } from "react-redux";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
-import {clearCartCount,clearCartItems} from '../actions/cartActions';
+import { clearCartCount, clearCartItems } from "../actions/cartActions";
+import Button from '@material-ui/core/Button';
+import styled from 'styled-components';
+
+const StyledDiv = styled.div`
+p{
+  font-size:1.5rem;
+}
+`
+
 
 const Payment = (props) => {
-  const {push} = useHistory()
+  const { push } = useHistory();
   const getItemNames = props.inCart.map((item, idx) => {
     return item.yeezy_title;
   });
@@ -26,9 +35,9 @@ const Payment = (props) => {
         window.alert(
           "Your payment has been submited! Your Yeezy shoes are on the way!"
         );
-        props.clearCartCount()
-        props.clearCartItems()
-        push('/')
+        props.clearCartCount();
+        props.clearCartItems();
+        push("/");
       })
       .catch((err) => {
         console.log("Axios Payment error");
@@ -36,7 +45,7 @@ const Payment = (props) => {
   };
   console.log(paymentData);
   return (
-    <div>
+    <StyledDiv>
       <p>
         {" "}
         Total: $
@@ -46,8 +55,9 @@ const Payment = (props) => {
         items for purchase :{"  "}
         {props.cartCount}
       </p>
-      <button onClick={purchaseClick}>Purchase</button>
-    </div>
+      
+      <Button  variant="contained" onClick={purchaseClick}>Purchase</Button>
+    </StyledDiv>
   );
 };
 const mapStateToProps = (state) => {
@@ -57,4 +67,6 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, {clearCartCount, clearCartItems})(Payment);
+export default connect(mapStateToProps, { clearCartCount, clearCartItems })(
+  Payment
+);
