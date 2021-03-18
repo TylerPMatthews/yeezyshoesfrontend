@@ -7,7 +7,7 @@ import Cart from "./components/Cart";
 import Checkout from "./components/Checkout";
 import Payment from "./components/Payment";
 import Nav from './components/Nav';
-function App(props) {
+function App() {
   return (
     <div className="App">
       <Nav />
