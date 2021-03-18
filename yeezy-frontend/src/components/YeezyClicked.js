@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { connect } from "react-redux";
-import { getShoesByID, getAllShoes } from "../actions/yeezyActions";
+import { getShoesByID } from "../actions/yeezyActions";
 import { addToCartCount } from "../actions/cartActions";
 import styled from "styled-components";
 
