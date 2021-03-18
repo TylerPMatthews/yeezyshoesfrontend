@@ -3,6 +3,8 @@ import { connect } from "react-redux";
 import styled from "styled-components";
 import { useHistory } from "react-router-dom";
 import { removeFromCartCount } from "../actions/cartActions";
+import ArrowBackIcon from '@material-ui/icons/ArrowBack';
+import RemoveShoppingCartIcon from '@material-ui/icons/RemoveShoppingCart';
 
 const StyledDiv = styled.div`
   img {
@@ -13,10 +15,17 @@ const StyledDiv = styled.div`
 
 const Cart = (props) => {
   const { push } = useHistory();
-  console.log(props.inCart)
+  console.log(props.inCart);
   return (
     <StyledDiv>
       <h2>My Cart</h2>
+      <button
+        onClick={() => {
+          push("/");
+        }}
+      >
+        <ArrowBackIcon/>
+      </button>
       {props.inCart.map((item, idx) => {
         return (
           <div key={idx}>
@@ -32,7 +41,7 @@ const Cart = (props) => {
                 push("/");
               }}
             >
-              Remove
+              <RemoveShoppingCartIcon/>
             </button>
           </div>
         );
@@ -43,12 +52,14 @@ const Cart = (props) => {
         {props.inCart.reduce((n, { yeezy_price }) => n + yeezy_price, 0)}
       </p>
 
-      <button onClick={()=>{
-        push("/checkout")
-      }}>CHECKOUT</button>
-      <button onClick={()=>{
-        push('/')
-      }}>Back</button>
+      <button
+        onClick={() => {
+          push("/checkout");
+        }}
+      >
+        CHECKOUT
+      </button>
+     
     </StyledDiv>
   );
 };

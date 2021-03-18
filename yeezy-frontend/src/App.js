@@ -7,13 +7,17 @@ import Cart from "./components/Cart";
 import Checkout from './components/Checkout';
 import Payment from './components/Payment';
 import { connect } from "react-redux";
+import HomeIcon from '@material-ui/icons/Home';
+import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
+
+
 
 function App(props) {
   return (
     <div className="App">
       <nav>
-        <Link to="/">Home</Link>
-        <Link to="/cart">Cart {props.cartCount}</Link>
+        <Link to="/"><HomeIcon /></Link>
+        <Link to="/cart"> <ShoppingCartIcon/> {props.cartCount}</Link>
       </nav>
       <Switch>
         <Route path="/payment">

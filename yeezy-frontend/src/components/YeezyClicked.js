@@ -4,6 +4,8 @@ import { connect } from "react-redux";
 import { getShoesByID } from "../actions/yeezyActions";
 import { addToCartCount } from "../actions/cartActions";
 import styled from "styled-components";
+import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
+import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 
 const StyledDiv = styled.div`
   img {
@@ -38,11 +40,11 @@ const YeezyClicked = (props) => {
                 window.alert('Item has been added to cart')
               }}
             >
-              Add
+              <AddShoppingCartIcon/>
             </button>
             <button onClick={()=>{
               push("/")
-            }}>Back</button>
+            }}><ArrowBackIcon/></button>
           </StyledDiv>
         );
       })}
