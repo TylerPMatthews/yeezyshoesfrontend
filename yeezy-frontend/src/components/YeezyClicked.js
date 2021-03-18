@@ -6,6 +6,7 @@ import { addToCartCount } from "../actions/cartActions";
 import styled from "styled-components";
 import AddShoppingCartIcon from "@material-ui/icons/AddShoppingCart";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
+import IconButton from '@material-ui/core/IconButton';
 
 const StyledDiv = styled.div`
   h2 {
@@ -70,7 +71,7 @@ const YeezyClicked = (props) => {
               <span>In Stock: {item.count}</span>
             </div>
             <div className="buttons">
-              <button
+              <IconButton
                 onClick={() => {
                   props.inCart.push(item);
                   props.addToCartCount();
@@ -78,15 +79,15 @@ const YeezyClicked = (props) => {
                 }}
               >
                 <AddShoppingCartIcon />
-              </button>
+              </IconButton>
 
-              <button
+              <IconButton
                 onClick={() => {
                   push("/");
                 }}
               >
                 <ArrowBackIcon />
-              </button>
+              </IconButton>
             </div>
           </StyledDiv>
         );

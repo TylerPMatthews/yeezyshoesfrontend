@@ -5,6 +5,8 @@ import { useHistory } from "react-router-dom";
 import { removeFromCartCount } from "../actions/cartActions";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import RemoveShoppingCartIcon from "@material-ui/icons/RemoveShoppingCart";
+import Button from '@material-ui/core/Button';
+import IconButton from '@material-ui/core/IconButton';
 
 const StyledDiv = styled.div`
 .mainh2 h2 {
@@ -60,20 +62,19 @@ img {
 
 const Cart = (props) => {
   const { push } = useHistory();
-  console.log(props.inCart);
   return (
     <StyledDiv>
       <div className="mainh2">
       <h2>My Cart</h2>
       </div>
       <div className="buttonback">
-      <button
+      <IconButton
         onClick={() => {
           push("/");
         }}
       >
         <ArrowBackIcon />
-      </button>
+      </IconButton>
       </div>
      
       {props.inCart.map((item, idx) => {
@@ -87,7 +88,7 @@ const Cart = (props) => {
             <img src={item.yeezy_img[1]} alt={item.yeezy_title} />
            
            <div className="removecartbutton">
-           <button
+           <IconButton
               onClick={() => {
                 let index = idx;
                 props.inCart.splice(index, 1);
@@ -96,7 +97,7 @@ const Cart = (props) => {
               }}
             >
               <RemoveShoppingCartIcon />
-            </button>
+            </IconButton>
            </div>
          
           </div>
@@ -111,13 +112,15 @@ const Cart = (props) => {
       </div>
     
       <div className="checkout">
-      <button
+  
+      <Button
+      variant="contained"
         onClick={() => {
           push("/checkout");
         }}
       >
         CHECKOUT
-      </button>
+      </Button>
       </div>
     
     </StyledDiv>
