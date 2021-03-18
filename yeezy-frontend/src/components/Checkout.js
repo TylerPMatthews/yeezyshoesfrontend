@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
+import axios from "axios";
 const Checkout = () => {
   const { push } = useHistory();
   const initialFormValues = {
@@ -9,8 +10,9 @@ const Checkout = () => {
     customer_city: "",
     customer_state: "",
     customer_zip: "",
+    user_id:"2",
   };
- 
+
   const [value, setValue] = useState(initialFormValues);
 
   const handleChange = (e) => {
@@ -22,9 +24,15 @@ const Checkout = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    window.alert("Thank you for submiting your shipping information!");
-    push("/payment");
-    
+    axios
+      .post("https://yeezyshoesbackend.herokuapp.com/api/checkout", value)
+      .then((res) => {
+        window.alert("Thank you for submiting your shipping information!");
+        push("/payment");
+      })
+      .catch((err) => {
+        console.log("Axios checkout post error", err);
+      });
   };
   console.log(value);
   return (
@@ -96,10 +104,15 @@ const Checkout = () => {
             name="customer_zip"
           />
         </label>
+
         <button>Submit</button>
-        <button onClick={()=>{
-          push('/cart')
-        }}>Back</button>
+        <button
+          onClick={() => {
+            push("/cart");
+          }}
+        >
+          Back
+        </button>
       </form>
     </div>
   );

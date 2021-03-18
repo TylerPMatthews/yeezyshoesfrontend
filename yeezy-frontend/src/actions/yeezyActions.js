@@ -15,7 +15,7 @@ export const getAllShoes = () => {
         dispatch({ type: FETCHING_SHOES_SUCCESS, payload: res.data });
       })
       .catch((err) => {
-        dispatch({ type: FETCHING_SHOES_FAIL, payload: err.response.message });
+        dispatch({ type: FETCHING_SHOES_FAIL, payload: err.response });
       });
   };
 };
@@ -30,7 +30,7 @@ export const getShoesByID = (id) => {
         dispatch({ type: FETCHING_SHOE_SUCCESS, payload: res.data });
       })
       .catch((err) => {
-        dispatch({ type: FETCHING_SHOE_FAIL, payload: err.response.message });
+        dispatch({ type: FETCHING_SHOE_FAIL, payload: err.response });
       });
   };
 };
