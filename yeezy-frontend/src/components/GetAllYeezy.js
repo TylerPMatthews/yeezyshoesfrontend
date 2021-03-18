@@ -4,9 +4,10 @@ import { getAllShoes } from "../actions/yeezyActions";
 import YeezyDisplay from './YeezyDisplay';
 
 const GetAllYeezy = (props) => {
+  const {getAllShoes} = props
   useEffect(() => {
-    props.getAllShoes();
-  });
+    getAllShoes();
+  },[getAllShoes]);
 
   if (props.error) {
     return <h2>We have an error</h2>;
