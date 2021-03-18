@@ -37,6 +37,10 @@ const StyledDiv = styled.div`
   .buttons{
     margin:5%;
   }
+  .buttons button{
+    color:red;
+    font-size:2rem;
+  }
 `;
 
 const YeezyClicked = (props) => {
