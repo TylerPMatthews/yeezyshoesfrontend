@@ -16,6 +16,7 @@ const Cart = (props) => {
   console.log(props.inCart)
   return (
     <StyledDiv>
+      <h2>My Cart</h2>
       {props.inCart.map((item, idx) => {
         return (
           <div key={idx}>
