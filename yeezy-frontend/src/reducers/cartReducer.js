@@ -1,4 +1,4 @@
-import { ADDTOCARTCOUNT } from "../actions/cartActions";
+import { ADDTOCARTCOUNT, REMOVEFROMCARTCOUNT } from "../actions/cartActions";
 const initialState = {
   inCart: [],
   cartCount: 0,
@@ -9,6 +9,11 @@ const cartReducer = (state = initialState, action) => {
       return {
         ...state,
         cartCount: state.cartCount + 1,
+      };
+    case REMOVEFROMCARTCOUNT:
+      return {
+        ...state,
+        cartCount: state.cartCount - 1,
       };
     default:
       return state;

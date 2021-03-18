@@ -4,6 +4,8 @@ import { Route, Switch, Link } from "react-router-dom";
 import GetAllYeezy from "./components/GetAllYeezy";
 import YeezyClicked from "./components/YeezyClicked";
 import Cart from "./components/Cart";
+import Checkout from './components/Checkout';
+import Payment from './components/Payment';
 import { connect } from "react-redux";
 
 function App(props) {
@@ -14,6 +16,12 @@ function App(props) {
         <Link to="/cart">Cart {props.cartCount}</Link>
       </nav>
       <Switch>
+        <Route path="/payment">
+          <Payment/>
+        </Route>
+        <Route path="/checkout">
+          <Checkout/>
+        </Route>
         <Route path="/cart">
           <Cart />
         </Route>

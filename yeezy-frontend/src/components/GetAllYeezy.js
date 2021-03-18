@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { getAllShoes } from "../actions/yeezyActions";
-import YeezyClicked from './YeezyDisplay';
+import YeezyDisplay from './YeezyDisplay';
 
 const GetAllYeezy = (props) => {
   useEffect(() => {
@@ -20,7 +20,7 @@ const GetAllYeezy = (props) => {
   return (
     <div>
       {props.shoes.map((item, idx) => {
-      return <YeezyClicked item={item} key={idx} />
+      return <YeezyDisplay item={item} key={idx} />
       })}
     </div>
   );

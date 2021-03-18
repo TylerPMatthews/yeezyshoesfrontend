@@ -3,6 +3,15 @@ import { useParams } from "react-router-dom";
 import { connect } from "react-redux";
 import { getShoesByID } from "../actions/yeezyActions";
 import { addToCartCount } from "../actions/cartActions";
+import styled from "styled-components";
+
+const StyledDiv = styled.div`
+  img {
+    height: 10rem;
+    width: 10rem;
+  }
+`;
+
 const YeezyClicked = (props) => {
   const { id } = useParams();
   const newID = id.replace(/:/g, "");
@@ -14,17 +23,22 @@ const YeezyClicked = (props) => {
     <div>
       {props.shoe.map((item, idx) => {
         return (
-          <div key={idx}>
+          <StyledDiv key={idx}>
             <h2>{item.yeezy_title}</h2>
+            <span>{item.yeezy_gender}</span>
+            <p>${item.yeezy_price}</p>
+            <img src={item.yeezy_img[1]} alt={item.yeezy_title} />
+
             <button
               onClick={() => {
                 props.inCart.push(item);
                 props.addToCartCount();
+                window.alert('Item has been added to cart')
               }}
             >
               Add
             </button>
-          </div>
+          </StyledDiv>
         );
       })}
     </div>
