@@ -50,6 +50,12 @@ img {
   border-radius:12px;
 
 }
+.buttonback button{
+  font-size:1.5rem;
+}
+.removecartbutton button{
+  font-size:1.5rem;
+}
 `;
 
 const Cart = (props) => {
@@ -60,6 +66,7 @@ const Cart = (props) => {
       <div className="mainh2">
       <h2>My Cart</h2>
       </div>
+      <div className="buttonback">
       <button
         onClick={() => {
           push("/");
@@ -67,6 +74,8 @@ const Cart = (props) => {
       >
         <ArrowBackIcon />
       </button>
+      </div>
+     
       {props.inCart.map((item, idx) => {
         return (
           <div key={idx}>
@@ -77,7 +86,8 @@ const Cart = (props) => {
 
             <img src={item.yeezy_img[1]} alt={item.yeezy_title} />
            
-            <button
+           <div className="removecartbutton">
+           <button
               onClick={() => {
                 let index = idx;
                 props.inCart.splice(index, 1);
@@ -87,6 +97,8 @@ const Cart = (props) => {
             >
               <RemoveShoppingCartIcon />
             </button>
+           </div>
+         
           </div>
         );
       })}
