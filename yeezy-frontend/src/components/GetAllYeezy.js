@@ -6,7 +6,7 @@ import YeezyDisplay from './YeezyDisplay';
 const GetAllYeezy = (props) => {
   useEffect(() => {
     props.getAllShoes();
-  }, [props]);
+  }, []);
 
   if (props.error) {
     return <h2>We have an error</h2>;
