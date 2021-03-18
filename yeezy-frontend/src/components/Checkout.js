@@ -10,6 +10,7 @@ const Checkout = () => {
     customer_state: "",
     customer_zip: "",
   };
+ 
   const [value, setValue] = useState(initialFormValues);
 
   const handleChange = (e) => {
@@ -23,6 +24,7 @@ const Checkout = () => {
     e.preventDefault();
     window.alert("Thank you for submiting your shipping information!");
     push("/payment");
+    
   };
   console.log(value);
   return (
@@ -95,6 +97,9 @@ const Checkout = () => {
           />
         </label>
         <button>Submit</button>
+        <button onClick={()=>{
+          push('/cart')
+        }}>Back</button>
       </form>
     </div>
   );

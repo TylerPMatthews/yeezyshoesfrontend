@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 import { connect } from "react-redux";
 import { getShoesByID } from "../actions/yeezyActions";
 import { addToCartCount } from "../actions/cartActions";
@@ -15,6 +15,7 @@ const StyledDiv = styled.div`
 const YeezyClicked = (props) => {
   const { id } = useParams();
   const newID = id.replace(/:/g, "");
+  const {push} = useHistory()
   const {getShoesByID} = props
   useEffect(() => {
     getShoesByID(newID);
@@ -39,6 +40,9 @@ const YeezyClicked = (props) => {
             >
               Add
             </button>
+            <button onClick={()=>{
+              push("/")
+            }}>Back</button>
           </StyledDiv>
         );
       })}

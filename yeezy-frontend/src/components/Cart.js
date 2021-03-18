@@ -13,7 +13,7 @@ const StyledDiv = styled.div`
 
 const Cart = (props) => {
   const { push } = useHistory();
-
+  console.log(props.inCart)
   return (
     <StyledDiv>
       {props.inCart.map((item, idx) => {
@@ -45,6 +45,9 @@ const Cart = (props) => {
       <button onClick={()=>{
         push("/checkout")
       }}>CHECKOUT</button>
+      <button onClick={()=>{
+        push('/')
+      }}>Back</button>
     </StyledDiv>
   );
 };
