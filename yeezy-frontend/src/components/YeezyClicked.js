@@ -17,7 +17,7 @@ const YeezyClicked = (props) => {
   const newID = id.replace(/:/g, "");
   useEffect(() => {
     props.getShoesByID(newID);
-  }, []);
+  }, [newID, props]);
 
   return (
     <div>
